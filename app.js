@@ -7,7 +7,18 @@ const router = require("./routes/userRoutes.js");
 const cors = require("cors");
 
 var app = express();
-app.use(cors());
+const cors = require("cors");
+
+const app = express();
+
+const corsOptions = {
+  origin: "https://test-application-ui.vercel.app", // Frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
+
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
