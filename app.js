@@ -5,7 +5,13 @@ const { testConnection } = require("./config/dataBaseSetUp.js");
 const router = require("./routes/userRoutes.js");
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: "https://test-application-ui.vercel.app", // Frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
