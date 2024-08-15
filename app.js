@@ -1,15 +1,17 @@
+const { testConnection } = require("./config/dataBaseSetUp.js");
 var createError = require("http-errors");
+
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const router = require("./routes/userRoutes.js");
-const cors = require("cors");
+// const cors = require("cors");
 
 var app = express();
 const cors = require("cors");
 
-const app = express();
+// const app = express();
 
 const corsOptions = {
   origin: "https://test-application-ui.vercel.app", // Frontend URL
@@ -18,6 +20,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Ensure preflight requests are handled
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
